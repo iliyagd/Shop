@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+   
+    
+<center>
+    <div class="card">
+        <h4 class="card-header">{{ products.ProductName }}</h4>
+        <h5 class="card-text">{{ products.ShortDescription }}</h5>
+        <div class="card-body">
+          <h5 class="card-text">{{ products.Amount }}</h5>
+          <p class="text-start">{{ products.Description }}</p>
+          <p class="fs-6">creation date: {{ products.Data }}</p>
+        </div>
+      </div>
+</center>   
+
+{% endblock %}
+
+{% block title %} Products {% endblock %}

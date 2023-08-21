@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% for product in products %}
+    <center>
+        <div class="card mb-3" style="max-width: 540px;">
+          <div class="row g-0">
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title"><h5>{{ product.ProductName }}</h5></h5>
+                <p class="card-text"><h6>{{ product.ShortDescription }}</h6></p>
+                <p class="card-text"><h6>{{ product.Amount }}</h6></p>
+                <p class="card-text"><small>{{ product.Data }}</small></p>    
+                <a class="btn btn-dark" href="{% url 'products:ProductsDetail' product.ProductName %}" role="button">more</a>
+              </div>
+            </div>
+          </div>
+        </div>
+  </center>  
+    
+ 
+    {% endfor %}
+
+
+{% endblock %}
+
+
+{% block title %} Products{% endblock %}
