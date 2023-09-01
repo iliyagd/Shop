@@ -2,6 +2,12 @@ from django.db import models
 
 
 
+class Category(models.Model):
+    name = models.CharField(max_length=50 , null=True)
+    def __str__(self):
+        return self.name  
+
+
 
 
 
@@ -11,6 +17,7 @@ class product(models.Model):
     Amount = models.IntegerField()
     Description = models.TextField()
     Data = models.DateField()
+    Category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
 
 
     def __str__(self):

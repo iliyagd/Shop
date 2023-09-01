@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% for Category in Categorys %}
+<center>
+    <p class="card-text">{{ Category.name }}</p>   
+</center>
+{% endfor %}
+{% endblock %}
+
+{% block title %} Category {% endblock %}
