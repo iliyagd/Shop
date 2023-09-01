@@ -4,8 +4,8 @@
 
     <nav class="navbar bg-body-tertiary">
       <div class="container-fluid">
-        <form  method="get" class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <form  method="GET" class="d-flex" role="search" action="{% url 'products:products' %}">
+          <input class="form-control me-2" name="search" type="search" placeholder="جستجو کنید" aria-label="Search">
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
       </div>
@@ -20,9 +20,12 @@
             <div class="col-md-8">
               <div class="card-body">
                 <h5 class="card-title"><h5>{{ product.ProductName }}</h5></h5>
+                <p class="card-text"><small>{{ product.Category }}</small></p> 
                 <p class="card-text"><h6>{{ product.ShortDescription }}</h6></p>
                 <p class="card-text"><h6>{{ product.Amount }}</h6></p>
-                <p class="card-text"><small>{{ product.Data }}</small></p>    
+                <p class="card-text"><small>{{ product.Data }}</small></p>  
+   
+  
                 <a class="btn btn-dark" href="{% url 'products:ProductsDetail' product.ProductName %}" role="button">more</a>
               </div>
             </div>
