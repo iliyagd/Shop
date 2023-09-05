@@ -14,7 +14,7 @@ class Blog(ListView):
     context_object_name = 'products'
     def get_queryset(self) -> QuerySet[Any]:
         queryset = self.model.objects.all()
-        search_filter = self.request.GET.get('Search', None)
+        search_filter = self.request.GET.get('search', None)
         if search_filter:
             ArticleSerachLog.objects.create(body=search_filter)
             queryset = queryset.filter(Q(ProductName__icontains=search_filter))
