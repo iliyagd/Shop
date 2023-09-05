@@ -1,8 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+<nav class="navbar bg-body-tertiary">
+  <div class="container-fluid">
+    <form  method="GET" class="d-flex" role="search" action="{% url 'blog:blog' %}">
+      <input class="form-control me-2" name="search" type="search" placeholder="جستجو کنید" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
     {% for product in products %}
+
     <center>
         <div class="card mb-3" style="max-width: 540px;">
           <div class="row g-0">

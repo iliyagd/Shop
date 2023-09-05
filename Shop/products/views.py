@@ -20,8 +20,10 @@ class products(ListView):
         search_filter = self.request.GET.get('search',None)
         if search_filter:
             ArticleSerachLog.objects.create(body=search_filter)
-            queryset = queryset.filter(Q(ProductName_icontains=search_filter))
+            queryset = queryset.filter(Q(ProductName__icontains=search_filter))
         return queryset.distinct()
+
+
 class Category(ListView):
     template_name = 'Category.html'
     model = Category

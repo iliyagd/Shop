@@ -17,4 +17,11 @@ class product(models.Model):
 
     def __str__(self):
         return self.ProductName
+    
+
+    #-------------------------------------------Article search log----------------------------
+    
+class ArticleSerachLog(models.Model):
+    body =models.TextField(null=True)
         
+
