@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <nav class="navbar bg-body-tertiary">
-    <div class="container-fluid">
-      <form  method="GET" class="d-flex" role="search" action="{% url 'blog:blog' %}">
-        <input class="form-control me-2" name="search" type="search" placeholder="Search..." aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-    </div>
-  </nav>
+<nav class="navbar bg-body-tertiary">
+  <div class="container-fluid">
+    <form  method="GET" class="d-flex" role="search" action="{% url 'blog:blog' %}">
+      <input class="form-control me-2" name="search" type="search" placeholder="Search... " aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
     {% for product in products %}
 
     <center>
@@ -22,12 +22,13 @@
                 <h5 class="card-title"><h5>{{ product.Category }}</h5>
                 <p class="card-text"><h6>{{ product.ShortDescription }}</h6></p>
                 <p class="card-text"><small>{{ product.Data }}</small></p>    
-                <a class="btn btn-outline-danger" href="{% url 'blog:BlogDetail' product.ProductName %}" role="button">more</a>
+                <a class="btn btn-dark" href="{% url 'blog:BlogDetail' product.ProductName %}" role="button">more</a>
               </div>
             </div>
           </div>
         </div>
   </center>  
+  
     
  
     {% endfor %}
