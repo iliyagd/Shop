@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<p style="width: 20px;margin: 10px 40% 5px 37%;">
+    <a class="navbar-brand text-white "href="{% url 'home:home' %}">
+        <button type="button" class="btn-close " aria-label="Close">
+        </button>
+    </a>
+</p>
+<center>
+  
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" class="btn btn-outline-success" value="Login" >
+    </center>        
+    </form>
+{% endblock %}
+{% block title %}Login{% endblock %}
