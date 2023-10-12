@@ -1,20 +1,46 @@
+
 {% extends 'base.html' %}
 
 {% block content %}
-   
-    
-<center>
-    <div class="card">
-        <h4 class="card-header">{{ products.ProductName }}</h4>
-        <h5 class="card-text">{{ products.ShortDescription }}</h5>
-        <div class="card-body">
-          <h5 class="card-text">{{ products.Amount }}</h5>
-          <p class="text-start">{{ products.Description }}</p>
-          <p class="fs-6">creation date: {{ products.Data }}</p>
-        </div>
-      </div>
-</center>   
+
+<div class="container">
+  <div class="card">
+    <h4 class="card-header">{{ products.ProductName }}</h4>
+    <div class="card-body">
+      <h5 class="card-text">{{ products.ShortDescription }}</h5>
+      <h5 class="card-text">{{ products.Amount }}</h5>
+      <p class="card-text text-start">{{ products.Description }}</p>
+      <p class="card-text fs-6">Creation Date: {{ products.Data }}</p>
+
+      <style>
+        .add-to-cart-form {
+          display: inline-block;
+        }
+      
+        .add-to-cart-form input[type="submit"] {
+          background-color: #4CAF50;
+          color: white;
+          border: none;
+          padding: 10px 20px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+          cursor: pointer;
+          border-radius: 4px;
+        }
+      </style>
+      
+      <form class="add-to-cart-form" method="post" action="{% url 'products:cart' %}">
+        {% csrf_token %}
+        <input type="submit" value="Add to Cart">
+      </form>
+      
+    </div>
+  </div>
+</div>
 
 {% endblock %}
 
-{% block title %} Products {% endblock %}
+{% block title %}Product{% endblock %}
+

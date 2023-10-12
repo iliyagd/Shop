@@ -1,13 +1,23 @@
+
 {% extends 'base.html' %}
 
 {% block content %}
-<center>
-    <h3>Home page</h3>
-    <br>
-    <img src="https://tiktarh.com/wp-content/uploads/2021/10/Shshp1000232www.tiktarh.com_.jpg" class="img-fluid" alt="...">
-    <img src="https://media.hamshahrionline.ir/d/2020/04/12/4/4423445.jpg" class="img-fluid" alt="...">
-</center>
+
+<div class="container text-center">
+  <h3>Home page</h3>
+  <br>
+  <div class="row">
+    <div class="col-md-6">
+      <img src="https://tiktarh.com/wp-content/uploads/2021/10/Shshp1000232www.tiktarh.com_.jpg" class="img-fluid rounded" alt="Image 1">
+    </div>
+    <div class="col-md-6">
+      <img src="https://media.hamshahrionline.ir/d/2020/04/12/4/4423445.jpg" class="img-fluid rounded" alt="Image 2">
+    </div>
+  </div>
+</div>
+
 
 {% endblock %}
 
-{% block title %} Home {% endblock %}
+{% block title %}Home{% endblock %}
+

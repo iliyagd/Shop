@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Cart</h1>
+
+    {% for item in cart_items %}
+        <li>{{ item }}</li>
+    {% empty %}
+        <li>zero</li>
+    {% endfor %}
+
+
+<form method="post" action="{% url 'products:cart' %}">
+    
+</form>
+{% endblock %}
+
+{% block title %}Cart{% endblock %}

@@ -1,43 +1,44 @@
+
 {% extends 'base.html' %}
 
 {% block content %}
 
-    <nav class="navbar bg-body-tertiary">
-      <div class="container-fluid">
-        <form  method="GET" class="d-flex" role="search" action="{% url 'products:products' %}">
-          <input class="form-control me-2" name="search" type="search" placeholder="Search..." aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
+<nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
+    <div class="container-fluid">
+        <form method="GET" class="d-flex" role="search" action="{% url 'products:products' %}">
+            <input class="form-control me-2" name="search" type="search" placeholder="Search..." aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
-      </div>
-    </nav>
+    </div>
+</nav>
 
-    {% for product in products %}
-    <center>
-        <div class="card mb-3" style="max-width: 540px;">
-          <div class="row g-0">
-            <div class="col-md-4">
+<div class="container">
+    <div class="row">
+        {% for product in products %}
+        <div class="col-md-6">
+            <div class="card mb-3">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <!-- Product image -->
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h4 class="card-title">{{ product.ProductName }}</h4>
+                            <h5 class="card-title">{{ product.Category }}</h5>
+                            <p class="card-text">{{ product.ShortDescription }}</p>
+                            <p class="card-text">{{ product.Amount }}</p>
+                            <p class="card-text"><small>{{ product.Data }}</small></p>
+                            <a class="btn btn-outline-danger" href="{% url 'products:ProductsDetail' product.ProductName %}" role="button">More</a>
+                        
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                <h5 class="card-title"><h4>{{ product.ProductName }}<h4>
-                  <h5 class="card-title"><h5>{{ product.Category }}</h5> 
-                <p class="card-text"><h6>{{ product.ShortDescription }}</h6></p>
-                <p class="card-text"><h6>{{ product.Amount }}</h6></p>
-                <p class="card-text"><small>{{ product.Data }}</small></p>  
-   
-  
-                <a class="btn btn-outline-danger" href="{% url 'products:ProductsDetail' product.ProductName %}" role="button">more</a>
-              </div>
-            </div>
-          </div>
         </div>
-    </center>  
-    
- 
-    {% endfor %}
-
+        {% endfor %}
+    </div>
+</div>
 
 {% endblock %}
 
-
-{% block title %} Products{% endblock %}
+{% block title %}Products{% endblock %}

@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 
 
 class Category(models.Model):
@@ -18,6 +18,7 @@ class product(models.Model):
     Description = models.TextField()
     Data = models.DateField()
     Category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
+    
 
 
     def __str__(self):
@@ -27,5 +28,16 @@ class product(models.Model):
 # -----------------------------------Aritcle search log------------------------------------
 class ArticleSerachLog(models.Model):
     body =models.TextField(null=True)
+
+# ----------------------------------- CartItem -----------------------------------
+class CartItem(models.Model):
+    User = models.ForeignKey(User,on_delete=models.CASCADE, null=True)
+    Product = models.ForeignKey('Product', on_delete=models.CASCADE)
+    Quantity = models.PositiveIntegerField(default=0)
+    Created_at = models.DateTimeField(auto_now_add=True) 
+
+    def __str__(self):
+        return self.Product.ProductName
+    
 
     
