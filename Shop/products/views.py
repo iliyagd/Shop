@@ -1,6 +1,7 @@
 
 from typing import Any
 from django.db.models.query import QuerySet
+from django.http import HttpResponse
 from django.shortcuts import render
 from django.views.generic.list import ListView
 from django.views import View
@@ -48,7 +49,17 @@ class ShoppingCartView(View):
         cart_items.append(item)
         request.session['cart_items'] = cart_items
         return redirect('products:cart')
+    
 
+
+from django.views.generic.edit import FormView
+from . forms import Image
+class UploadImageView(FormView):
+    template_name = 'upload_image.html'    
+    form_class = Image
+    success_url = '/success/'
+    def form_valid(self, form):
+        return super().form_valid(form)
 
 
     

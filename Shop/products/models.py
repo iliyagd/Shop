@@ -17,12 +17,14 @@ class product(models.Model):
     Amount = models.IntegerField()
     Description = models.TextField()
     Data = models.DateField()
+    Image = models.ImageField(upload_to='images/')
     Category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
     
 
 
     def __str__(self):
-        return self.ProductName  
+        return self.ProductName
+          
           
 
 # -----------------------------------Aritcle search log------------------------------------
@@ -31,13 +33,10 @@ class ArticleSerachLog(models.Model):
 
 # ----------------------------------- CartItem -----------------------------------
 class CartItem(models.Model):
-    User = models.ForeignKey(User,on_delete=models.CASCADE, null=True)
-    Product = models.ForeignKey('Product', on_delete=models.CASCADE)
-    Quantity = models.PositiveIntegerField(default=0)
-    Created_at = models.DateTimeField(auto_now_add=True) 
+    item = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.Product.ProductName
+        return self.item
     
 
     
