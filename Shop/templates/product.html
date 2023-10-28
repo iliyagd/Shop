@@ -19,7 +19,9 @@
             <div class="card mb-3">
                 <div class="row g-0">
                     <div class="col-md-4">
-                        <img src="" alt="{{product.Image}}">
+                        {% if product.Image %}
+                        <img src="{{product.Image.url}}" class="img-thumbnail" alt="product">
+                        {% endif %}
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">

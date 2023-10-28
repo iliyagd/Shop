@@ -12,6 +12,7 @@ class product(models.Model):
     ShortDescription = models.CharField(max_length=100)
     Description = models.TextField()
     Data = models.DateField()
+    Image = models.ImageField(null=True, blank=True ,upload_to="images/")
     Category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
 
 

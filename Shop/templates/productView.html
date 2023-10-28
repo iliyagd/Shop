@@ -11,7 +11,6 @@
       <h5 class="card-text">{{ products.Amount }}</h5>
       <p class="card-text text-start">{{ products.Description }}</p>
       <p class="card-text fs-6">Creation Date: {{ products.Data }}</p>
-
       <style>
         .add-to-cart-form {
           display: inline-block;
@@ -31,7 +30,7 @@
         }
       </style>
       
-      <form class="add-to-cart-form" method="post" action="{% url 'products:cart' %}">
+      <form class="add-to-cart-form" method="post" action="#">
         {% csrf_token %}
         <input type="submit" value="Add to Cart">
       </form>

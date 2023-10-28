@@ -5,5 +5,5 @@ from.models import Category,CartItem
 
 admin.site.register(product)
 admin.site.register(Category)
-admin.site.register(CartItem)
+
 

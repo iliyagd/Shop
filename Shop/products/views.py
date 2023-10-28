@@ -1,17 +1,13 @@
 
 from typing import Any
 from django.db.models.query import QuerySet
-from django.http import HttpResponse
-from django.shortcuts import render
 from django.views.generic.list import ListView
-from django.views import View
+from django.views.generic import ListView, CreateView
 from django.views.generic.detail import DetailView
-from .forms import SearchForm
 from django.db.models import Q
-from django.shortcuts import render, redirect
 
-from .models import product
-from .models import Category, ArticleSerachLog, CartItem
+from .models import product ,Category, ArticleSerachLog
+
 
 class products(ListView):
     model = product
@@ -37,29 +33,6 @@ class ProductsDetail(DetailView):
     model = product
     context_object_name = 'products'
     slug_field = 'ProductName'
-
-class ShoppingCartView(View):
-    def get(self, request):
-        cart_items = request.session.get('cart_items', [])
-        return render(request, 'shopping_cart.html', {'cart_items': cart_items})
-
-    def post(self, request):
-        item = request.POST.get('item')
-        cart_items = request.session.get('cart_items', [])
-        cart_items.append(item)
-        request.session['cart_items'] = cart_items
-        return redirect('products:cart')
-    
-
-
-from django.views.generic.edit import FormView
-from . forms import Image
-class UploadImageView(FormView):
-    template_name = 'upload_image.html'    
-    form_class = Image
-    success_url = '/success/'
-    def form_valid(self, form):
-        return super().form_valid(form)
 
 
     
